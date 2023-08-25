@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
+import AskScreen from "../screens/ask/AskScreen";
 import Auth from "../screens/auth/Auth";
 import Main from "../screens/main/Main";
 
@@ -24,8 +25,7 @@ const AppRouter = () => {
                         </ProtectedRoute> } />
                         
                     <Route path='/auth' element={<Auth />} />
-                    {/* <Route path='/card-page/:docid' element={<CardPage />} />
-                    <Route path='/profile/:uid' element={<SharedProfileData />} /> */}
+                    <Route path='/profile/:email' element={<AskScreen />} />
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -1,31 +1,27 @@
-import React, { useState } from "react";
-import SideBar from "./SideBar";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import Answer from "./answers/Answer";
-import Favorites from "./answers/Favorites";
-import Setup from "../../screens/main/Setup";
+import { AuthContext } from "../../AuthContext";
+import AskSideBar from "./AskSideBar";
+import Ask from "./Ask";
+import Auth from "../auth/Auth";
 
-const Main = () => {
+const AskScreen = () => {
+    const {currentUser} = useContext(AuthContext);
     const [selectedTab, setSelectedTab] = useState(0);
 
     return (
         <Container>
             <SideBarContainer>
-                <SideBar setSelectedTab={setSelectedTab} selectedTab={selectedTab}/>
+                <AskSideBar setSelectedTab={setSelectedTab} selectedTab={selectedTab} />
             </SideBarContainer>
             {selectedTab === 0 && 
                 <Content>
-                    <Answer />
+                    <Ask currentUser={currentUser}/>
                 </Content>
             }
             {selectedTab === 1 && 
                 <Content>
-                    <Favorites />
-                </Content>
-            } 
-            {selectedTab === 2 && 
-                <Content>
-                    <Setup />
+                    <Auth />
                 </Content>
             } 
         </Container>
@@ -66,4 +62,4 @@ const Content = styled.div`
     justify-content: center;
 `;
 
-export default Main;
+export default AskScreen;

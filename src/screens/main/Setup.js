@@ -6,18 +6,29 @@ import { colors } from "../../colors";
 const Setup = () => {
     return (
         <Container>
-            <SetupIcon/>
-            <Text> Setup </Text>
+            <Header>
+                <SetupIcon/>
+                <Text> Setup </Text>    
+            </Header>
         </Container>
     )
 };
 
 const Container = styled.div`
-    /* background-color: wheat; */
+    display: flex;
+    width: 100%; /* 가로 폭을 100%로 설정하여 화면 가로폭에 꽉 차게 */
+    height: 100vh;
+    flex: 1;
+    flex-direction: column; /* 세로로 배치 */
+`;
+
+const Header = styled.div`
+    background-color: rgba(45, 68, 33, 0.1);
     flex-direction: row;
-    justify-content: center;
-    display: inline-flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-between; /* 내용 좌우 정렬 */
+    display: flex;
+    padding: 10px; /* 상하 좌우 여백 추가 */
 `;
 
 const Text = styled.h1`
