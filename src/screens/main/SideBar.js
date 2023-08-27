@@ -8,10 +8,6 @@ import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import {AiOutlineLogout} from "react-icons/ai";
 
-// IoSettingsSharp
-// BsFillBookmarkStarFill
-// IoChatbubbleEllipsesSharp
-
 const SideBar = ({ selectedTab, setSelectedTab }) => {
     const navigate = useNavigate();
 
@@ -21,23 +17,24 @@ const SideBar = ({ selectedTab, setSelectedTab }) => {
                 <MenuContainer>
                     <ComponentBox onClick={() => setSelectedTab(0)} isSelected={selectedTab === 0}>
                         <AnswerIcon isSelected={selectedTab === 0} />
-                        <Text isSelected={selectedTab === 0}> Answer </Text>
+                        <Text isSelected={selectedTab === 0}> 답변하기 </Text>
                     </ComponentBox>
 
                     <ComponentBox onClick={() => setSelectedTab(1)} isSelected={selectedTab === 1}>
                         <FavoritesIcon isSelected={selectedTab === 1} />
-                        <Text isSelected={selectedTab === 1}> Favorites </Text>
+                        <Text isSelected={selectedTab === 1}> 즐겨찾기 </Text>
                     </ComponentBox>
 
                     <ComponentBox onClick={() => setSelectedTab(2)} isSelected={selectedTab === 2}>
                         <SetupIcon isSelected={selectedTab === 2} />
-                        <Text isSelected={selectedTab === 2}> Setup </Text>
+                        <Text isSelected={selectedTab === 2}> 설정 </Text>
                     </ComponentBox>
                     <ComponentBox onClick={() => {
                         signOut(auth) 
                         navigate("/")
                         alert("로그아웃 되었습니다.")
-                        console.log("로그아웃 완료")}}>
+                        console.log("로그아웃 완료")
+                    }}>
                         <LogOutIcon />
                         <Text> 로그아웃 </Text>
                     </ComponentBox>
@@ -140,8 +137,8 @@ const LogOutIcon = styled(AiOutlineLogout)`
 
 const Text = styled.h1`
     margin: 0px 10px;
-    padding-top: 5px;
-    font-size: 1.2rem;
+    padding: 3px;
+    font-size: 0.9rem;
     color: ${colors.headerColor};
     font-weight: bold;
     ${(props) => 

@@ -33,8 +33,6 @@ const blinkAnimation = keyframes`
 `;
 
 const Container = styled.div`
-    background-color: rgba(45, 68, 33, 0.1);
-    /* width: 60%; */
     height: 100vh;
     display: flex;
     margin: auto;

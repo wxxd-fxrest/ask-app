@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import {LiaExclamationCircleSolid} from "react-icons/lia";
+import DefaultImage from '../../assets/QnA-Profile.png';
 
-const AskList = ({getQuestion}) => {
-
+const AskList = ({getQuestion, profileUser}) => {
     return(
         <>
             {getQuestion && getQuestion.Data.Answer ? <>
@@ -16,7 +16,7 @@ const AskList = ({getQuestion}) => {
                 </ContentsBox>
 
                 <ContentsBox2>
-                {/* <ProfileImage source={getProfileData ? {uri: getProfileData.profileImgURL} : DefaultImage}/> */}
+                <ProfileImage src={profileUser ? profileUser.profileImgURL : DefaultImage} alt=""/>
                     <AnswerBox>
                         <Answer>
                             {getQuestion.Data.Answer}
@@ -94,12 +94,12 @@ const ContentsBox2 = styled.div`
     padding-bottom: 10px;
 `;
 
-// const ProfileImage = styled.image`
-//     width: 35px;
-//     height: 35px;
-//     border-radius: 30px;
-//     margin-right: 10px;
-// `;
+const ProfileImage = styled.img`
+    width: 35px;
+    height: 35px;
+    border-radius: 30px;
+    margin-right: 10px;
+`;
 
 const AnswerBox = styled.div`
     background-color: rgba(45, 68, 33, 0.23);

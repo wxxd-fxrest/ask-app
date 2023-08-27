@@ -3,15 +3,16 @@ import styled from "styled-components";
 import {TbMessageCircleQuestion} from "react-icons/tb";
 import { colors } from "../../colors";
 import { useLocation } from "react-router-dom";
-import { addDoc, collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { addDoc, collection, getDocs, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase";
 import AskList from "./AskList";
 import {BsArrowRightCircleFill} from "react-icons/bs";
 
-const Ask = ({currentUser}) => {
+const Ask = () => {
     const location = useLocation();
     const pathname = location.pathname; 
     const [getQuestion, setGetQuestion] = useState([]);
+    const [profileUser, setProfileUser] = useState([]);
     const [ask, setAsk] = useState("");
     const pathUID = pathname.split('/')[2];
 
@@ -23,7 +24,20 @@ const Ask = ({currentUser}) => {
     };
 
     useEffect(() => {
-        if (currentUser) {
+        const getLoginUserData = async() => {
+            if(pathUID) {
+                const q = query(
+                    collection(db, "Users", `${pathUID}`, "UsersData"));
+                const querySnapshot = await getDocs(q);
+                querySnapshot.forEach((doc) => {
+                    setProfileUser(doc.data());
+                });     
+            }
+        };
+        getLoginUserData();
+    }, [pathUID]); 
+
+    useEffect(() => {
             const FeedCollection = query(
                 collection(db, "Users", `${pathUID}`, "QnA-Collection"), orderBy('orderBy', 'asc'));
                 onSnapshot(FeedCollection, (querySnapshot) => {
@@ -38,8 +52,7 @@ const Ask = ({currentUser}) => {
                 setGetQuestion(feedArray);
                 // console.log(feedArray)
             });
-        }
-    }, [currentUser, pathUID, pathname]); 
+    }, [pathUID, pathname]); 
 
     const onAsk = async() => {
         if(ask) {
@@ -60,7 +73,7 @@ const Ask = ({currentUser}) => {
             </Header>
             <ScrollableContent>
                 {getQuestion.map((a, i) => (
-                    <AskList key={i} getQuestion={a} />
+                    <AskList key={i} getQuestion={a} profileUser={profileUser}/>
                 ))}
             </ScrollableContent>
             <InputContainer>

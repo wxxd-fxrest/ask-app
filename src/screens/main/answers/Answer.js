@@ -32,7 +32,7 @@ const Answer = () => {
         <Container>
             <Header>
                 <AnswerIcon/>
-                <Text> Ask-Answer </Text>
+                <Text> Answer </Text>
             </Header>
             <ScrollableContent>
                 {getQuestion.map((a, i) => (

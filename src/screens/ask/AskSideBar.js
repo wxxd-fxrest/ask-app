@@ -3,27 +3,24 @@ import styled, { css, StyleSheetManager } from "styled-components";
 import { colors } from "../../colors";
 import {IoSettingsOutline} from "react-icons/io5";
 import {TbMessageCircleQuestion} from "react-icons/tb";
-// IoSettingsSharp
-// BsFillBookmarkStarFill
-// IoChatbubbleEllipsesSharp
 
 const AskSideBar = ({ selectedTab, setSelectedTab }) => {
-  return (
-    <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isSelected'}>
-        <SideBarContainer>
-            <MenuContainer>
-                <ComponentBox onClick={() => setSelectedTab(0)} isSelected={selectedTab === 0}>
-                    <QuestionIcon isSelected={selectedTab === 0} />
-                    <Text isSelected={selectedTab === 0}> Ask </Text>
-                </ComponentBox>
-                <ComponentBox onClick={() => setSelectedTab(1)} isSelected={selectedTab === 1}>
-                    <SetupIcon isSelected={selectedTab === 1} />
-                    <Text isSelected={selectedTab === 1}> Login </Text>
-                </ComponentBox>
-            </MenuContainer>
-        </SideBarContainer>
-    </StyleSheetManager>
-  );
+    return (
+        <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isSelected'}>
+            <SideBarContainer>
+                <MenuContainer>
+                    <ComponentBox onClick={() => setSelectedTab(0)} isSelected={selectedTab === 0}>
+                        <QuestionIcon isSelected={selectedTab === 0} />
+                        <Text isSelected={selectedTab === 0}> Ask </Text>
+                    </ComponentBox>
+                    <ComponentBox onClick={() => setSelectedTab(1)} isSelected={selectedTab === 1}>
+                        <SetupIcon isSelected={selectedTab === 1} />
+                        <Text isSelected={selectedTab === 1}> Login </Text>
+                    </ComponentBox>
+                </MenuContainer>
+            </SideBarContainer>
+        </StyleSheetManager>
+    );
 };
 
 const SideBarContainer = styled.div`

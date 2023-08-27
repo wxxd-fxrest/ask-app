@@ -25,6 +25,7 @@ const FavoritesList = ({getQuestion, currentUser}) => {
             await deleteDoc(doc(db, 'Users', `${currentUser.email}`, 'QnA-Collection', `${getQuestion.DocID}`)); 
         }
     };
+
     const onAnswerDelete = async() => {
         console.log(getQuestion.DocID)
         const ok = window.confirm("게시글을 삭제하시겠습니까?")
@@ -149,7 +150,6 @@ const AnswerBox = styled.div`
     padding: 10px;
     border-radius: 10px 10px 0px 10px;
     max-width: 70%;
-    /* margin: 5px 0px; */
 `;
 
 const AnswerText = styled.h1`

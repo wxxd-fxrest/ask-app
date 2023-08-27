@@ -1,12 +1,50 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import styled from "styled-components";
 import Answer from "./answers/Answer";
 import Favorites from "./answers/Favorites";
 import Setup from "../../screens/main/Setup";
+import { AuthContext } from "../../AuthContext";
+import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const Main = () => {
+    const {currentUser} = useContext(AuthContext);
+    const [userData, setUserData] = useState([]);
     const [selectedTab, setSelectedTab] = useState(0);
+    const [profileUser, setProfileUser] = useState([]);
+
+    useEffect(() => {
+        const getLoginUserData = async () => {
+            if (currentUser) {
+                const q = query(
+                    collection(db, "Users", `${currentUser.email}`, "UsersData")
+                );
+                const querySnapshot = await getDocs(q);
+                querySnapshot.forEach((doc) => {
+                    setProfileUser(doc.data());
+                    console.log(doc.data());
+                });
+            }
+        };
+        getLoginUserData();
+    }, [currentUser, profileUser.profileImgURL]); 
+
+    useEffect(() => {
+        const getLoginUserData = async () => {
+            const docRef = doc(db, "Users", `${currentUser.email}`);
+            const docSnap = await getDoc(docRef);
+    
+            if (docSnap.exists()) {
+                const userData = docSnap.data();
+                setUserData(userData); // 상태 업데이트
+                console.log("Document data:", userData); // 새로운 상태값 콘솔 출력
+            } else {
+                console.log("No such document!");
+            }
+        };
+        getLoginUserData();
+    }, [currentUser]);
 
     return (
         <Container>
@@ -25,7 +63,7 @@ const Main = () => {
             } 
             {selectedTab === 2 && 
                 <Content>
-                    <Setup />
+                    <Setup profileUser={profileUser} userData={userData}/>
                 </Content>
             } 
         </Container>

@@ -21,10 +21,8 @@ const Favorites = () => {
                     DocID: doc.id, 
                     Data: doc.data(),
                 })
-                // console.log(doc.data())
             });
             setGetQuestion(feedArray);
-            // console.log(feedArray)
         });
     }, [currentUser.email]);
 
@@ -32,7 +30,7 @@ const Favorites = () => {
         <Container>
             <Header>
                 <FavoritesIcon/>
-                <Text> Favorites </Text>
+                <Text> 즐겨찾기 </Text>
             </Header>
             <ScrollableContent>
                 {getQuestion.map((a, i) => (

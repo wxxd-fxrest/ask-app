@@ -19,7 +19,6 @@ const AnswerList = ({getQuestion, currentUser}) => {
     };
 
     const onDelete = async() => {
-        console.log(getQuestion.DocID)
         const ok = window.confirm("게시글을 삭제하시겠습니까?")
         if(ok) {
             await deleteDoc(doc(db, 'Users', `${currentUser.email}`, 'QnA-Collection', `${getQuestion.DocID}`)); 
@@ -143,7 +142,6 @@ const QuestionBox = styled.div`
     padding: 10px;
     border-radius: 0px 10px 10px 10px;
     max-width: 70%;
-    /* margin: 5px 0px; */
 `;
 
 const Question = styled.h1`
@@ -220,7 +218,6 @@ const AnswerBox = styled.div`
     padding: 10px;
     border-radius: 10px 10px 0px 10px;
     max-width: 70%;
-    /* margin: 5px 0px; */
 `;
 
 const AnswerText = styled.h1`
@@ -244,7 +241,6 @@ const TextInputContainer = styled.div`
 `;
 
 const CancleBox = styled.div`
-    /* margin-right: 3%; */
     cursor: pointer;
 `;
 
