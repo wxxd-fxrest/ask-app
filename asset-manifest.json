@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ask-app/static/css/main.90f6920e.css",
-    "main.js": "/ask-app/static/js/main.486ab841.js",
+    "main.js": "/ask-app/static/js/main.a7ef833f.js",
     "static/media/QnA-Profile.png": "/ask-app/static/media/QnA-Profile.c3f945216dc12c9498dc.png",
     "index.html": "/ask-app/index.html",
     "main.90f6920e.css.map": "/ask-app/static/css/main.90f6920e.css.map",
-    "main.486ab841.js.map": "/ask-app/static/js/main.486ab841.js.map"
+    "main.a7ef833f.js.map": "/ask-app/static/js/main.a7ef833f.js.map"
   },
   "entrypoints": [
     "static/css/main.90f6920e.css",
-    "static/js/main.486ab841.js"
+    "static/js/main.a7ef833f.js"
   ]
 }
