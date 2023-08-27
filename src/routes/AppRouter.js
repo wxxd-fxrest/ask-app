@@ -16,7 +16,7 @@ const AppRouter = () => {
     }; 
 
     return(
-        <BrowserRouter>
+        <BrowserRouter basename="ask-app">
             <Routes>
                 <Route>
                     <Route index element={
