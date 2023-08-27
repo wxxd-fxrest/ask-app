@@ -11,7 +11,7 @@ const Setup = ({profileUser, userData}) => {
     const [isCopied, setIsCopied] = useState(false);
 
     const handleCopyClick = () => {
-        const textToCopy = `http://localhost:3000/profile/${userData.email}`;
+        const textToCopy = `https://wxxd-fxrest.github.io/ask-app/profile/${userData.email}`;
         navigator.clipboard.writeText(textToCopy).then(() => {
             setIsCopied(true);
             setTimeout(() => {
