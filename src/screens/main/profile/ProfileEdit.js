@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../AuthContext";
 import { db, storage } from "../../../firebase";
+import { doc, updateDoc } from "firebase/firestore";
+import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import { v4 as uuidv4 } from 'uuid';
 import styled from "styled-components";
 import { colors } from "../../../colors";
 import DefaultImage from '../../../assets/QnA-Profile.png';
 import {FaUserCheck} from "react-icons/fa";
 import {TbPhotoEdit} from "react-icons/tb";
-import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import { doc, updateDoc } from "firebase/firestore";
-import { v4 as uuidv4 } from 'uuid';
-import { AuthContext } from "../../../AuthContext";
 
 const ProfileEdit = ({profileUser, userData, setEdit, edit}) => {
     const {currentUser} = useContext(AuthContext);
