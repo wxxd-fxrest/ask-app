@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
+import { db, storage } from "../../../firebase";
 import styled from "styled-components";
 import { colors } from "../../../colors";
 import DefaultImage from '../../../assets/QnA-Profile.png';
 import {FaUserCheck} from "react-icons/fa";
 import {TbPhotoEdit} from "react-icons/tb";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import { db, storage } from "../../../firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 import { AuthContext } from "../../../AuthContext";
