@@ -1,11 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 import styled, { css, StyleSheetManager } from "styled-components";
 import { colors } from "../../colors";
 import {IoChatbubbleEllipsesOutline, IoSettingsOutline} from "react-icons/io5";
 import {BsBookmarkStar} from "react-icons/bs";
-import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
 import {AiOutlineLogout} from "react-icons/ai";
 
 const SideBar = ({ selectedTab, setSelectedTab }) => {
