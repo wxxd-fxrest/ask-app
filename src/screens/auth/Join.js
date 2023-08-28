@@ -28,6 +28,7 @@ const Join = () => {
                 email: email, 
                 name: email.split('@')[0],
             })
+            await setDoc(doc(db, "Users", `${email}`, "UsersData", "URL"), {})
             navigate("/");
             alert("회원가입 완료");
         } catch(error) {
