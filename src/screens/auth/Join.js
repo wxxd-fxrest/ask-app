@@ -1,10 +1,10 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../colors";
-import { auth, db } from "../../firebase";
 
 const Join = () => {
     const navigate = useNavigate();
