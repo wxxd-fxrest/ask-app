@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import {IoSettingsOutline} from "react-icons/io5";
+import {BiShareAlt} from "react-icons/bi";
 import { colors } from "../../colors";
 import ProfileScreen from "./profile/ProfileScreen";
 import ProfileEdit from "./profile/ProfileEdit";
-import {BiShareAlt} from "react-icons/bi";
 
 const Setup = ({profileUser, userData}) => {
     const [edit, setEdit] = useState(false);
